@@ -1,13 +1,21 @@
 const clock = document.getElementById('clock')
 
 function currentTime() {
-	let date = new Date()
+	const date = new Date()
 
-	let hours = date.getHours()
-	let min = date.getMinutes()
-	let sec = date.getSeconds()
+	hours = date.getHours().toString()
+	min = date.getMinutes().toString()
+	sec = date.getSeconds().toString()
 
-	let time = hours + ':' + min + ':' + sec
+	hourse = hours < 10 ? '0' + hours : hours
 
-	clock.innerText = time
+	min = min < 10 ? '0' + min : min
+
+	sec = sec < 10 ? '0' + sec : sec
+
+	const time = hours + ':' + min + ':' + sec
+
+	clock.innerHTML = time
 }
+
+setInterval(currentTime, 500)
